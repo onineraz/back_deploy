@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-b
+spec:
+  selector:
+    app: back
+  ports:
+  - port: 8000
+    targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: b-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: back
+  template:
+    metadata:
+      name: b-pod
+      labels:
+        app: back
+    spec:
+      containers:
+      - name: was-con
+        image: onineraz/back:1
