@@ -26,4 +26,4 @@ spec:
     spec:
       containers:
       - name: was-con
-        image: onineraz/back:1
+        image: onineraz/back:2
